@@ -44,7 +44,7 @@ function InfiniteScroller(element, config) {
     // Lightweight extend to avoid dependency on a deep extend function
     for (var property in options) {
         if (options.hasOwnProperty(property)) {
-            options[index] = config[index];
+            options[property] = config[property];
         }
     }
 
