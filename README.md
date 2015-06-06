@@ -46,7 +46,7 @@ var infiniteScrollerInstance = new InfiniteScroller(targetElement, {
         }
       };
 
-      httpRequest.open('GET', '/whatever/example-api/results');
+      httpRequest.open('GET', '/whatever/example-api/results?page=' + page);
       httpRequest.send();
     });
   }

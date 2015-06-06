@@ -8,10 +8,8 @@
 function InfiniteScroller(element, config) {
 
   // Private variables
-  var currentPage = 0;
-  var state = {
-    pages: {}
-  };
+  var currentPage;
+  var state;
   var scrollTimeout = null;
 
   // Default options
@@ -52,10 +50,27 @@ function InfiniteScroller(element, config) {
    * Init method
    */
   function init() {
-    loadInitialBatch();
+    reset();
 
     // Bind a scroll listener which we'll use to trigger new pages to load
     window.addEventListener('scroll', scrollListener);
+  }
+
+  /**
+   * Public method to reset the product list
+   * Called on init() and also exposed publicy so the list can be reset from
+   * the calling script.
+   */
+  function reset() {
+    currentPage = 0;
+
+    state = {
+      pages: {}
+    };
+
+    element.innerHTML = '';
+
+    loadInitialBatch();
   }
 
   /**
@@ -160,21 +175,6 @@ function InfiniteScroller(element, config) {
    */
   function pageAtBottom() {
     return (element.getBoundingClientRect().top + element.clientHeight + window.pageYOffset - 50) < (window.pageYOffset + window.innerHeight);
-  }
-
-  /**
-   * Public method to reset the product list
-   */
-  function reset() {
-    currentPage = 0;
-
-    state = {
-      pages: {}
-    };
-
-    element.innerHTML = '';
-
-    loadInitialBatch();
   }
 
   /**
