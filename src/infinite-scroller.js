@@ -159,7 +159,7 @@ function InfiniteScroller(element, config) {
      * @return {Boolean} Boolean representing whether the page is at the bottom
      */
     function pageAtBottom() {
-        return (element.getBoundingClientRect().bottom - 50) < (window.pageYOffset + window.innerHeight);
+        return (element.getBoundingClientRect().top + element.clientHeight + window.pageYOffset - 50) < (window.pageYOffset + window.innerHeight);
     }
 
     /**
