@@ -23,7 +23,5 @@
     "url": "https://github.com/andymantell/infinite-scroller/issues"
   },
   "homepage": "https://github.com/andymantell/infinite-scroller",
-  "dependencies": {
-    "es6-promise": "^2.2.0"
-  }
+  "dependencies": {}
 }

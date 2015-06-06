@@ -1,7 +1,5 @@
 'use strict';
 
-var Promise = require('es6-promise').Promise;
-
 /**
  * Infinite Scroll
  * @param {Element} element Target DOM element
