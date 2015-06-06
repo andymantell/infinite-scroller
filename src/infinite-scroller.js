@@ -42,11 +42,11 @@ function InfiniteScroller(element, config) {
     };
 
     // Lightweight extend to avoid dependency on a deep extend function
-    options.forEach(function(item, index) {
-        if(typeof(config[index]) !== 'undefined') {
+    for (var property in options) {
+        if (options.hasOwnProperty(property)) {
             options[index] = config[index];
         }
-    });
+    }
 
     /**
      * Init method
