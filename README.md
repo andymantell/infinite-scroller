@@ -13,6 +13,34 @@ Demos available at [http://andymantell.github.io/infinite-scroller/](http://andy
 
 There are no dependencies apart from that it expects a `Promise` implementation to be available either natively or via a polyfill. If you don't have this already, [`es6-promise`](https://github.com/jakearchibald/es6-promise) is great. If you *don't want* a `Promise` implementation in your application, then this plugin is not for you!
 
+## Basic usage
+```
+var targetElement = document.querySelector('ul.my-target-element');
+
+var infiniteScrollerInstance = new InfiniteScroller(targetElement, {
+  request: function(page) {
+    return new Promise(function(resolve, reject) {
+      var httpRequest = new XMLHttpRequest();
+
+      httpRequest.onreadystatechange = function() {
+        if (httpRequest.readyState === 4) {
+          if (httpRequest.status === 200) {
+            resolve(render(httpRequest.responseText));
+          } else {
+            reject('There was a problem with the request.');
+          }
+        }
+      };
+
+      httpRequest.open('GET', '/whatever/example-api/results');
+      httpRequest.send();
+    });
+  }
+});
+
+infiniteScrollerInstance.init()
+```
+
 
 ## TODO:
 
