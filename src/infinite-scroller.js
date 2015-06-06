@@ -9,7 +9,7 @@ var offset = require('bloody-offset');
  * @param {Element} element Target DOM element
  * @param {Object}  config  Configuration object
  */
-function InfiniteScroll(element, config) {
+function InfiniteScroller(element, config) {
 
     // Private variables
     var currentPage = 0;
@@ -193,5 +193,10 @@ function InfiniteScroll(element, config) {
     return self;
 }
 
-// Expose our plugin's constructor
-module.exports = InfiniteScroll;
+// Expose as a CommonJS module for browserify
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = InfiniteScroller;
+  } else {
+    // Otherwise expose as a global for non browserify users
+    window.InfiniteScroller = InfiniteScroller;
+  }
