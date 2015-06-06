@@ -1,7 +1,7 @@
 # infinite-scroller
 Simple infinite scroll
 
-*Note: Work in progress - not quite ready for use yet*
+**Note: Code is functional, but I need to write some documentation and demos. To follow shortly...**
 
 Install as follows if you are using Browserify:
 
