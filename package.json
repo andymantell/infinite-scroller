@@ -1,0 +1,31 @@
+{
+  "name": "infinite-scroller",
+  "version": "0.0.0",
+  "description": "Simple infinite scroll",
+  "main": "src/infinite-scroll.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andymantell/infinite-scroller.git"
+  },
+  "keywords": [
+    "infinite",
+    "scroll",
+    "infinite",
+    "scroll",
+    "scrolling"
+  ],
+  "author": "Andy Mantell <contact@andymantell.com> (http://andymantell.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andymantell/infinite-scroller/issues"
+  },
+  "homepage": "https://github.com/andymantell/infinite-scroller",
+  "dependencies": {
+    "bloody-offset": "0.0.0",
+    "es6-promise": "^2.2.0",
+    "extend": "^2.0.1"
+  }
+}
