@@ -1,6 +1,5 @@
 'use strict';
 
-var extend = require('extend');
 var Promise = require('es6-promise').Promise;
 var offset = require('bloody-offset');
 
@@ -42,7 +41,12 @@ function InfiniteScroller(element, config) {
         }
     };
 
-    extend(options, config);
+    // Lightweight extend to avoid dependency on a deep extend function
+    options.forEach(function(item, index) {
+        if(typeof(config[index]) !== 'undefined') {
+            options[index] = config[index];
+        }
+    });
 
     /**
      * Init method
