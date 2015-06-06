@@ -19,7 +19,10 @@ function InfiniteScroller(element, config) {
         placeholderClass: 'placeholder',
 
         /**
-         * AJAX request handler. When instantiating this module this function should
+         * AJAX request handler.
+         * When instantiating this module this function must be specified as an option.
+         * This function is where you should do your AJAX call to return HTML to this plugin.
+         *
          * @param  {Number} page Page number to fetch. 1 based.
          * @return {Promise}     Promise which should resolve with the HTML to be appended to the main element
          */
