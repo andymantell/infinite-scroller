@@ -1,7 +1,6 @@
 'use strict';
 
 var Promise = require('es6-promise').Promise;
-var offset = require('bloody-offset');
 
 /**
  * Infinite Scroll
@@ -159,8 +158,7 @@ function InfiniteScroller(element, config) {
      * @return {Boolean} Boolean representing whether the page is at the bottom
      */
     function pageAtBottom() {
-        var elOffset = offset(element);
-        return (elOffset.top + elOffset.height - 50) < (window.pageYOffset + window.innerHeight);
+        return (element.getBoundingClientRect().bottom - 50) < (window.pageYOffset + window.innerHeight);
     }
 
     /**
