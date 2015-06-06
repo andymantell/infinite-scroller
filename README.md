@@ -18,6 +18,7 @@ There are no dependencies apart from that it expects a `Promise` implementation 
 * Handle the last page properly - i.e. `resolve` the request promise with `false` and then disable infinite scrolling.
 * Catch promise rejections from the request handler and do something useful with them
 * Add in history management with `history.replaceState` so that when clicking away and returning to the list page, you are returned to the same place you are left off.
+* history & URL management to allow deep linking into subsequent pages
 * Make sure the plugin works in situations where the page already contains the first set of results in the DOM - i.e. a no-JS fallback.
 * Test suite
 * Make it fail gracefully in IE8. Or support IE8, depending on my mood.
