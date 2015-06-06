@@ -17,7 +17,6 @@ There are no dependencies apart from that it expects a `Promise` implementation 
 
 * Handle the last page properly - i.e. `resolve` the request promise with `false` and then disable infinite scrolling.
 * Catch promise rejections from the request handler and do something useful with them
-* Consider disabling the infinite scrolling while pages are loading - at the moment if you hold down the END key it loads page after page and goes a bit mad
 * Add in history management with `history.replaceState` so that when clicking away and returning to the list page, you are returned to the same place you are left off.
 * Make sure the plugin works in situations where the page already contains the first set of results in the DOM - i.e. a no-JS fallback.
 * Test suite

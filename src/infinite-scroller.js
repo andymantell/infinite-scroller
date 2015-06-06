@@ -10,6 +10,7 @@ function InfiniteScroller(element, config) {
   // Private variables
   var currentPage;
   var state;
+  var busy = false;
   var scrollTimeout = null;
 
   // Default options
@@ -92,6 +93,8 @@ function InfiniteScroller(element, config) {
   function requestNextPage() {
     var page = ++currentPage;
 
+    busy = true;
+
     // Pop a placeholder in the DOM straight away which we will replace with
     // the results later
     // Otherwise, if multiple pages got requested in quick succession, there
@@ -110,6 +113,8 @@ function InfiniteScroller(element, config) {
         options.processResults(results);
 
         element.replaceChild(results, placeholder);
+
+        busy = false;
       });
 
     // Pre-fetch the page after that, but don't do anything with the results
@@ -163,7 +168,7 @@ function InfiniteScroller(element, config) {
   function scrollListener(e) {
     clearTimeout(scrollTimeout);
     scrollTimeout = setTimeout(function() {
-      if(pageAtBottom()) {
+      if(!busy && pageAtBottom()) {
         requestNextPage();
       }
     }, 100);
